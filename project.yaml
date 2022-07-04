@@ -1,15 +1,21 @@
-specVersion: 0.2.0
-name: parascan-subql-starter
-version: 1.0.0
-description: subql starter for parascan
-repository: "https://github.com/parascan/parascan-subql-starter"
+specVersion: 1.0.0
+name: parascan-polkadot
+version: 0.0.1
+runner:
+  node:
+    name: "@subql/node"
+    version: "*"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: ""
+repository: https://github.com/jamesbayly/parascan-polkadot
 schema:
   file: ./schema.graphql
-
 network:
-  endpoint: wss://basilisk.api.onfinality.io/public-ws
-  genesisHash: "0xa85cfb9b9fd4d622a5b28289a02347af987d8f73fa3108450e2b4a11c1ce5755"
-
+  chainId: "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+  endpoint: "wss://polkadot.api.onfinality.io/public-ws"
+  dictionary: "https://api.subquery.network/sq/subquery/polkadot-dictionary"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
