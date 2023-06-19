@@ -16,11 +16,13 @@ export async function ensureExtrinsic(
 
   let entity = await Extrinsic.get(recordId);
   if (!entity) {
-    entity = new Extrinsic(recordId);
-    entity.blockId = block.id;
-    entity.blockNumber = block.number;
-    entity.index = index;
-    entity.hash = hash;
+    entity = Extrinsic.create({
+      id: recordId,
+      blockId: block.id,
+      blockNumber: block.number,
+      index,
+      hash,
+    });
     await entity.save();
   }
   return entity;

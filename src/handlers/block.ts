@@ -4,8 +4,10 @@ import { Block } from "../types";
 export async function ensureBlock(recordId: string): Promise<Block> {
   let entity = await Block.get(recordId);
   if (!entity) {
-    entity = new Block(recordId);
-    entity.number = BigInt(recordId);
+    entity = Block.create({
+      id: recordId,
+      number: BigInt(recordId),
+    });
     await entity.save();
   }
   return entity;
