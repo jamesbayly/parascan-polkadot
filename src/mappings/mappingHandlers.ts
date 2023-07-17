@@ -1,18 +1,16 @@
 import {
-  SubstrateExtrinsic,
-  SubstrateEvent,
   SubstrateBlock,
 } from "@subql/types";
 import {
   createBlock,
   createEvent,
   createExtrinsic,
+  createTransfer,
   ensureAccount,
+  updateDay,
   wrapExtrinsics,
 } from "../handlers";
 import { Event, Transfer } from "../types";
-import { createTransfer } from "../handlers/transfer";
-import { updateDay } from "../handlers/day";
 
 export async function handleBlock(block: SubstrateBlock): Promise<void> {
   await createBlock(block);
